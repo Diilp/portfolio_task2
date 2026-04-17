@@ -1,92 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dilip Kumar Yadav | Portfolio</title>
-  <link rel="stylesheet" href="style1.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dilip Kumar Yadav is an aspiring software engineer with strengths in full-stack development, cloud fundamentals, responsive web development, and problem solving.">
+  <meta name="keywords" content="Dilip Kumar Yadav, Aspiring Software Engineer, Portfolio, JavaScript, Java, Node.js, AWS, DSA">
+  <meta name="author" content="Dilip Kumar Yadav">
+  <meta name="theme-color" content="#0b1220">
+  <title>Dilip Kumar Yadav | Aspiring Software Engineer Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="main-header">
-    <div class="container">
-      <h1>Dilip Kumar Yadav</h1>
-      <p class="tagline">Creative Developer & Designer</p>
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1N4x9BGYqD/" target="_blank">Facebook</a>
-        <a href="https://github.com/dilipkumar" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/dilip-kumar-yadav-ab95802b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
-" target="_blank">LinkedIn</a>
-        <a href="https://x.com/DilipKumar4952?t=Vsyx3Fzroto8toI7PtN6Iw&s=09" target="_blank">Twitter</a>
-        <a href="https://www.instagram.com/dilipyadav3100?igsh=bm42M292dGVkbm9r" target="_blank">Instagram</a>
+  <div class="page-noise"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark">DKY</span>
+        <span class="brand-copy">
+          <strong>Dilip Kumar Yadav</strong>
+          <small>Aspiring Software Engineer</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#problem-solving">DSA</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="button button-secondary desktop-only" href="dilipResume.pdf" download>Download Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb"></span>
+          </span>
+          <span class="theme-toggle-text">Dark</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <div class="about-flex">
-        <img src="https://via.placeholder.com/180" alt="Dilip Kumar Yadav" class="profile-pic" />
-        <p>I'm a passionate developer who loves creating beautiful and functional websites. With a knack for clean code and eye-catching design, I blend creativity with technical expertise to deliver immersive user experiences. I also enjoy capturing stunning visuals through photography and exploring new technologies.</p>
-      </div>
-    </div>
-  </section>
+  <main>
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Developer Portfolio</p>
+        <p class="hero-intro">Dilip Kumar Yadav <span>Aspiring Software Engineer</span></p>
+        <h1>Building polished web products with strong engineering fundamentals.</h1>
+        <p class="hero-lead">
+          Computer Science undergraduate focused on full-stack development, problem solving, and cloud fundamentals.
+          I build responsive, reliable interfaces and keep growing through backend and AWS-based project work.
+        </p>
 
-  <section id="skills" class="section light">
-    <div class="container">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>HTML5</li>
-        <li>CSS3 & SASS</li>
-        <li>JavaScript & React</li>
-        <li>UI/UX Design</li>
-        <li>Responsive Web Design</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </div>
-  </section>
+        <div class="hero-points">
+          <span>150+ DSA problems solved</span>
+          <span>Node.js, MongoDB, and AWS project work</span>
+          <span>ServiceNow certification in progress</span>
+        </div>
 
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project">
-          <img src="https://via.placeholder.com/350x200" alt="Project 1">
-          <h3>Personal Portfolio</h3>
-          <p>My fully responsive portfolio website showcasing my skills and projects.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View Projects</a>
+          <a class="button button-ghost" href="#contact">Contact Me</a>
         </div>
-        <div class="project">
-          <img src="https://via.placeholder.com/350x200" alt="Project 2">
-          <h3>Photography Gallery</h3>
-          <p>A minimalist gallery layout to display high-quality photographs beautifully.</p>
-        </div>
-        <div class="project">
-          <img src="https://via.placeholder.com/350x200" alt="Project 3">
-          <h3>Weather App</h3>
-          <p>Real-time weather data app using OpenWeatherMap API with modern UI.</p>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <strong>150+</strong>
+            <span>Problems solved across LeetCode and GFG to sharpen logic, speed, and interview readiness.</span>
+          </article>
+          <article class="metric-card">
+            <strong>3</strong>
+            <span>Production-style portfolio projects spanning full-stack APIs, responsive UI, and cloud deployment.</span>
+          </article>
+          <article class="metric-card">
+            <strong>2</strong>
+            <span>Internship experiences across frontend implementation and AWS cloud fundamentals.</span>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="resume" class="section light">
-    <div class="container">
-      <h2>Resume</h2>
-      <a class="button" href="resume.pdf" download>Download Resume (PDF)</a>
-    </div>
-  </section>
+      <aside class="hero-panel reveal">
+        <div class="hero-panel-top">
+          <span class="status-pill">Open to internships and entry-level roles</span>
+          <div class="mini-badge">2025 - 2026</div>
+        </div>
 
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:dilip@example.com">dilip@example.com</a></p>
-      <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
-    </div>
-  </section>
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <img src="dilip.jpg" alt="Portrait of Dilip Kumar Yadav" class="portrait" width="300" height="360" decoding="async">
+          </div>
+        </div>
 
-  <footer class="main-footer">
-    <p>&copy; 2025 Dilip Kumar Yadav. Built with 💻 and passion.</p>
+        <div class="hero-panel-copy">
+          <h2>Dilip Kumar Yadav</h2>
+          <p>Aspiring software engineer with strengths in responsive interfaces, backend fundamentals, and disciplined problem solving.</p>
+        </div>
+
+        <div class="profile-proof">
+          <div class="proof-item">
+            <span class="proof-label">Focus</span>
+            <strong>Full-stack development and clean UI execution</strong>
+          </div>
+          <div class="proof-item">
+            <span class="proof-label">Strength</span>
+            <strong>150+ DSA problems solved across LeetCode and GFG</strong>
+          </div>
+          <div class="proof-item">
+            <span class="proof-label">Learning</span>
+            <strong>AWS deployment, IAM, monitoring, and ServiceNow training</strong>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="https://github.com/dilipkumar" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/dilip-kumar-yadav-ab95802b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:yadavdilipkumar@gmail.com">Email</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section container reveal" id="about">
+      <div class="section-heading">
+        <p class="section-kicker">About</p>
+        <h2>Grounded in fundamentals, sharpened through projects, and focused on becoming a dependable software engineer.</h2>
+        <p>
+          I am building my portfolio around the fundamentals that matter most in early-career engineering roles: strong DSA practice,
+          hands-on full-stack development, responsive frontend work, and cloud exposure through AWS. My goal is to keep growing from fundamentals into execution
+          and contribute to teams that value clarity, ownership, and steady technical progress.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <article class="panel about-card">
+          <span class="card-label">Foundation</span>
+          <h3>Computer Science with systems awareness</h3>
+          <p>
+            I have built a strong base in Data Structures, Algorithms, DBMS, and Operating Systems, which helps me approach projects with stronger engineering judgment.
+          </p>
+        </article>
+
+        <article class="panel about-card">
+          <span class="card-label">Growth Path</span>
+          <h3>Full-stack development and cloud computing</h3>
+          <p>
+            My work so far has focused on Node.js, backend APIs, responsive web development, AWS deployment, IAM concepts, and monitoring workflows.
+          </p>
+        </article>
+
+        <article class="panel about-card">
+          <span class="card-label">Discipline</span>
+          <h3>DSA practice with enterprise learning</h3>
+          <p>
+            Solving 150+ problems across LeetCode and GFG has strengthened my speed and problem-solving structure, while ServiceNow training is broadening my exposure to enterprise systems.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="projects">
+      <div class="section-heading">
+        <p class="section-kicker">Projects</p>
+        <h2>Projects structured to show problem solving, technical decisions, and delivery readiness.</h2>
+        <p>Each card highlights the problem, the solution, the stack, and the details that make the work relevant to recruiters.</p>
+      </div>
+
+      <article class="panel featured-project">
+        <div class="project-visual visual-quiz">
+          <div class="project-window">
+            <div class="window-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="quiz-preview">
+              <div class="quiz-chip">Featured Project</div>
+              <div class="quiz-question"></div>
+              <div class="quiz-option active"></div>
+              <div class="quiz-option"></div>
+              <div class="quiz-option"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-copy">
+          <div class="featured-header">
+            <span class="card-label">Featured Project</span>
+            <h3>Online Quiz Platform</h3>
+            <p>
+              A full-stack quiz system designed to handle authentication, role-based access, and backend-driven quiz workflows with a clean user experience.
+            </p>
+          </div>
+
+          <div class="case-study-grid">
+            <div>
+              <h4>Problem</h4>
+              <p>Quiz systems need secure authentication, controlled access, and reliable APIs to manage questions, users, and submission flow.</p>
+            </div>
+            <div>
+              <h4>Solution</h4>
+              <p>I built a Node.js and MongoDB platform with JWT authentication, role-based access control, and backend APIs for quiz operations.</p>
+            </div>
+          </div>
+
+          <div class="feature-block">
+            <h4>Key Features</h4>
+            <ul class="feature-list">
+              <li>JWT-based authentication for secure user access</li>
+              <li>Role-based access to separate permissions and workflows</li>
+              <li>Backend APIs to manage quiz data and system flow</li>
+              <li>Responsive frontend interface for smooth usage across devices</li>
+            </ul>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+
+          <p class="impact-note">Impact: Demonstrates my ability to connect backend logic, access control, and frontend usability in one end-to-end build.</p>
+
+          <div class="project-links">
+            <a class="button button-secondary" href="https://github.com/dilipkumar" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button button-ghost" href="quiz-platform-demo.html">Live Demo</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="projects-grid">
+        <article class="panel case-study">
+          <div class="project-visual visual-ui">
+            <span class="project-badge">Frontend</span>
+          </div>
+          <h3>Portfolio Website</h3>
+          <p class="project-summary">A responsive portfolio website built to present projects, skills, and experience with clearer visual hierarchy and stronger personal branding.</p>
+          <div class="case-copy">
+            <p><strong>Problem:</strong> A portfolio needs to communicate credibility, technical clarity, and design maturity within seconds.</p>
+            <p><strong>Solution:</strong> Built a responsive portfolio website with an interactive UI, stronger visual hierarchy, and cleaner presentation of projects and experience.</p>
+            <p><strong>Features:</strong> Responsive layout, dark and light theme support, interactive sections, and recruiter-focused content structure.</p>
+          </div>
+          <div class="tag-row">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+          <p class="impact-note">Impact: Turned a simple personal site into a stronger professional asset that communicates skill and ambition more effectively.</p>
+          <div class="project-links">
+            <a class="button button-secondary" href="https://github.com/dilipkumar" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button button-ghost" href="portfolio-website-demo.html">Live Demo</a>
+          </div>
+        </article>
+
+        <article class="panel case-study">
+          <div class="project-visual visual-cloud">
+            <span class="project-badge">Cloud</span>
+          </div>
+          <h3>AWS Deployment Project</h3>
+          <p class="project-summary">A cloud-focused deployment project built to understand how applications move from local development to managed AWS environments.</p>
+          <div class="case-copy">
+            <p><strong>Problem:</strong> Shipping applications requires more than writing code. Deployment, monitoring, and access management are part of real software delivery.</p>
+            <p><strong>Solution:</strong> Deployed applications using EC2 and Elastic Beanstalk while learning IAM, scaling concepts, and monitoring workflows.</p>
+            <p><strong>Features:</strong> EC2-based hosting, Elastic Beanstalk deployment flow, IAM awareness, and practical exposure to monitoring and scaling concepts.</p>
+          </div>
+          <div class="tag-row">
+            <span class="tag">AWS EC2</span>
+            <span class="tag">Elastic Beanstalk</span>
+            <span class="tag">IAM</span>
+            <span class="tag">Monitoring</span>
+          </div>
+          <p class="impact-note">Impact: Strengthened my understanding of how applications move from local development to managed cloud environments.</p>
+          <div class="project-links">
+            <a class="button button-secondary" href="https://github.com/dilipkumar" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button button-ghost" href="aws-deployment-demo.html">Live Demo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="experience">
+      <div class="section-heading">
+        <p class="section-kicker">Experience</p>
+        <h2>Experience that strengthened both frontend execution and cloud fundamentals.</h2>
+        <p>These roles helped me turn classroom knowledge into practical work across responsive interfaces and deployment-focused learning.</p>
+      </div>
+
+      <div class="journey-layout">
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-year">Education</span>
+            <div class="timeline-card panel">
+              <h3>Computer Science Undergraduate</h3>
+              <p>Building a foundation in Data Structures, Algorithms, DBMS, Operating Systems, Full-Stack Development, and Cloud Computing.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="timeline-year">Internship</span>
+            <div class="timeline-card panel">
+              <h3>Web Development Intern - CodSoft</h3>
+              <p>Built responsive web pages, used DOM manipulation to improve interactivity, and strengthened UI responsiveness across frontend implementations.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="timeline-year">Internship</span>
+            <div class="timeline-card panel">
+              <h3>AWS Cloud Intern - Vaidsys Technologies</h3>
+              <p>Worked with EC2 and Elastic Beanstalk while learning deployment workflow, IAM concepts, and monitoring in cloud environments.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="timeline-year">Certification</span>
+            <div class="timeline-card panel">
+              <h3>Oracle Cloud Infrastructure AI Foundations 2025</h3>
+              <p>Added a certification-backed layer to my cloud and AI learning path while continuing to strengthen practical project skills.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="problem-solving">
+      <div class="section-heading">
+        <p class="section-kicker">Problem Solving and DSA</p>
+        <h2>Consistent problem-solving practice is one of the strongest signals in my profile.</h2>
+        <p>DSA has helped me approach software problems with more structure, better edge-case thinking, and stronger debugging confidence.</p>
+      </div>
+
+      <div class="problem-solving-grid">
+        <article class="panel problem-card">
+          <div class="skill-head">
+            <h3>Problems Solved</h3>
+            <span>150+</span>
+          </div>
+          <div class="skill-meter"><span style="width: 82%;"></span></div>
+          <p class="problem-note">Solved 150+ problems across LeetCode and GFG with focus on interview-relevant patterns and consistency.</p>
+          <div class="tag-row">
+            <span class="tag">Arrays</span>
+            <span class="tag">Strings</span>
+            <span class="tag">Recursion</span>
+            <span class="tag">Trees</span>
+            <span class="tag">Graphs</span>
+          </div>
+          <div class="project-links">
+            <a class="button button-secondary" href="https://leetcode.com/" target="_blank" rel="noreferrer">LeetCode</a>
+            <a class="button button-ghost" href="https://www.geeksforgeeks.org/" target="_blank" rel="noreferrer">GFG</a>
+          </div>
+        </article>
+
+        <article class="panel dsa-panel">
+          <span class="card-label">Proof-Based Metrics</span>
+          <h3>Practice that translates into better engineering decisions.</h3>
+          <p>Regular DSA practice improves how I break down problems, reason about complexity, and handle edge cases during implementation.</p>
+          <div class="dsa-stats">
+            <div>
+              <strong>2 Platforms</strong>
+              <span>Active practice across LeetCode and GeeksforGeeks.</span>
+            </div>
+            <div>
+              <strong>5 Focus Areas</strong>
+              <span>Arrays, strings, recursion, trees, and graphs.</span>
+            </div>
+            <div>
+              <strong>Interview Ready</strong>
+              <span>Pattern-based practice with repeatable problem-solving habits.</span>
+            </div>
+            <div>
+              <strong>Execution Gain</strong>
+              <span>Stronger debugging, decomposition, and logical consistency.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="certifications">
+      <div class="section-heading">
+        <p class="section-kicker">Certifications and Learning</p>
+        <h2>Certifications that strengthen my cloud and platform learning path.</h2>
+      </div>
+
+      <div class="cert-grid">
+        <article class="panel certification-card">
+          <div class="cert-badge-row">
+            <span class="cert-icon">OCI</span>
+            <span class="card-label">Earned</span>
+          </div>
+          <h3>Oracle Cloud Infrastructure AI Foundations (2025)</h3>
+          <p>
+            Earned certification that validates my understanding of cloud and AI fundamentals and supports my broader software engineering learning path.
+          </p>
+          <div class="cert-evidence">
+            <a class="cert-thumb" href="eCertificate.jpg" target="_blank" rel="noreferrer" aria-label="Open Oracle Cloud certificate image">
+              <img src="eCertificate.jpg" alt="Oracle Cloud Infrastructure AI Foundations certificate for Dilip Kumar Yadav" loading="lazy" width="1024" height="768" decoding="async">
+            </a>
+            <a class="button button-secondary cert-action" href="eCertificate.jpg" target="_blank" rel="noreferrer">View Certificate</a>
+          </div>
+        </article>
+
+        <article class="panel certification-card">
+          <div class="cert-badge-row">
+            <span class="cert-icon">SN</span>
+            <span class="card-label">In Progress</span>
+          </div>
+          <h3>ServiceNow Certification</h3>
+          <p>
+            Ongoing training focused on workflow automation, ITSM fundamentals, and platform development concepts used in enterprise environments.
+          </p>
+          <ul class="feature-list">
+            <li>Workflow automation understanding</li>
+            <li>ITSM fundamentals and process thinking</li>
+            <li>ServiceNow platform exposure</li>
+          </ul>
+        </article>
+
+        <article class="panel certification-card">
+          <div class="cert-badge-row">
+            <span class="cert-icon">AWS</span>
+            <span class="card-label">Learning</span>
+          </div>
+          <h3>AWS deployment depth</h3>
+          <p>
+            Continuing to strengthen practical understanding of EC2, Elastic Beanstalk, IAM, monitoring, and cloud delivery workflows through project-led learning.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="skills">
+      <div class="section-heading">
+        <p class="section-kicker">Skills</p>
+        <h2>Skills grouped for fast recruiter scanning and clearer technical positioning.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article class="panel skill-card">
+          <div class="skill-head">
+            <h3>Languages</h3>
+            <span>84%</span>
+          </div>
+          <div class="skill-meter"><span style="width: 84%;"></span></div>
+          <div class="tag-row">
+            <span class="tag skill-tag">Java</span>
+            <span class="tag skill-tag">JavaScript</span>
+            <span class="tag skill-tag">Python</span>
+          </div>
+        </article>
+
+        <article class="panel skill-card">
+          <div class="skill-head">
+            <h3>Development</h3>
+            <span>88%</span>
+          </div>
+          <div class="skill-meter"><span style="width: 88%;"></span></div>
+          <div class="tag-row">
+            <span class="tag skill-tag">HTML</span>
+            <span class="tag skill-tag">CSS</span>
+            <span class="tag skill-tag">Node.js Basics</span>
+            <span class="tag skill-tag">Responsive Design</span>
+          </div>
+        </article>
+
+        <article class="panel skill-card">
+          <div class="skill-head">
+            <h3>Tools and Cloud</h3>
+            <span>74%</span>
+          </div>
+          <div class="skill-meter"><span style="width: 74%;"></span></div>
+          <div class="tag-row">
+            <span class="tag skill-tag">AWS EC2</span>
+            <span class="tag skill-tag">Elastic Beanstalk</span>
+            <span class="tag skill-tag">Git</span>
+            <span class="tag skill-tag">GitHub</span>
+            <span class="tag skill-tag">Oracle Cloud AI</span>
+          </div>
+        </article>
+
+        <article class="panel skill-card">
+          <div class="skill-head">
+            <h3>Core Foundations</h3>
+            <span>86%</span>
+          </div>
+          <div class="skill-meter"><span style="width: 86%;"></span></div>
+          <div class="tag-row">
+            <span class="tag skill-tag">Data Structures</span>
+            <span class="tag skill-tag">Algorithms</span>
+            <span class="tag skill-tag">DBMS</span>
+            <span class="tag skill-tag">Operating Systems</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="contact">
+      <div class="section-heading">
+        <p class="section-kicker">Contact</p>
+        <h2>Ready to contribute to internship and entry-level software teams.</h2>
+        <p>I am looking for opportunities where strong fundamentals, learning velocity, and consistent execution are valued.</p>
+      </div>
+
+      <div class="contact-layout">
+        <aside class="panel contact-card">
+          <h3>Direct Contact</h3>
+          <div class="contact-list">
+            <a href="mailto:yadavdilipkumar@gmail.com">
+              <span>Email</span>
+              <strong>yadavdilipkumar@gmail.com</strong>
+            </a>
+            <a href="https://github.com/dilipkumar" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>github.com/dilipkumar</strong>
+            </a>
+            <a href="https://www.linkedin.com/in/dilip-kumar-yadav-ab95802b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <strong>linkedin.com/in/dilip-kumar-yadav-ab95802b9</strong>
+            </a>
+            <a href="tel:+918431056470">
+              <span>Phone</span>
+              <strong>+91 8431056470</strong>
+            </a>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:yadavdilipkumar@gmail.com">Email Me</a>
+            <a class="button button-secondary" href="dilipResume.pdf" download>Resume</a>
+          </div>
+        </aside>
+
+        <form class="panel contact-form" id="contactForm">
+          <div class="field-grid">
+            <label>
+              Name
+              <input type="text" id="name" placeholder="Your name" required>
+            </label>
+            <label>
+              Email
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </label>
+          </div>
+
+          <label>
+            Subject
+            <input type="text" id="subject" placeholder="Internship, role, or collaboration" required>
+          </label>
+
+          <label>
+            Message
+            <textarea id="message" rows="6" placeholder="Share the opportunity or project details..." required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="button button-primary">Send Message</button>
+            <p id="formStatus">This form opens your email app with the message pre-filled.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Designed and developed to present resume data as a recruiter-ready portfolio.</p>
+      <p><span id="currentYear"></span> Dilip Kumar Yadav. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>

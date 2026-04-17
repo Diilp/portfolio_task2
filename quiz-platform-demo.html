@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz Platform Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: #e2e8f0;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.18), transparent 26%),
+        linear-gradient(135deg, #07111f, #0f172a);
+      padding: 28px;
+    }
+    .shell { max-width: 980px; margin: 0 auto; }
+    .topbar, .quiz-card, .result-card {
+      background: rgba(10, 18, 34, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(2, 8, 23, 0.4);
+      backdrop-filter: blur(16px);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+    .topbar a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: -0.05em;
+    }
+    .hero p { margin-top: 12px; color: #cbd5e1; max-width: 58ch; }
+    .quiz-card {
+      display: grid;
+      gap: 24px;
+      padding: 28px;
+    }
+    .quiz-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .badge {
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.14);
+      color: #7dd3fc;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .timer {
+      font-weight: 800;
+      color: #f8fafc;
+    }
+    .progress {
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+    }
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #7dd3fc, #14b8a6);
+      transition: width 0.25s ease;
+    }
+    #question {
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .options {
+      display: grid;
+      gap: 14px;
+    }
+    .option {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(255,255,255,0.04);
+      color: #e2e8f0;
+      text-align: left;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .option:hover { transform: translateY(-2px); border-color: rgba(125, 211, 252, 0.35); }
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .controls button {
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #0f62fe, #14b8a6);
+    }
+    .result-card {
+      display: none;
+      margin-top: 24px;
+      padding: 28px;
+    }
+    .result-card h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+    .result-card p { margin-top: 12px; color: #cbd5e1; }
+    .score {
+      margin-top: 18px;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #7dd3fc;
+    }
+    @media (max-width: 640px) {
+      body { padding: 16px; }
+      .topbar, .quiz-card, .result-card { padding: 20px; }
+      .quiz-head, .controls { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <a href="porfolio.html">Back to Portfolio</a>
+      <span class="badge">Interactive Project Demo</span>
+    </div>
+
+    <section class="hero">
+      <h1>Online Quiz Platform Demo</h1>
+      <p>This live demo shows the product-facing side of the Online Quiz Platform: structured quiz flow, clean progress tracking, and the kind of controlled experience supported by JWT authentication and role-based access in the full project.</p>
+    </section>
+
+    <section class="quiz-card">
+      <div class="quiz-head">
+        <div class="badge" id="stepLabel">Question 1 of 3</div>
+        <div class="timer" id="timer">Time left: 45s</div>
+      </div>
+
+      <div class="progress"><span id="progressBar"></span></div>
+      <p id="question"></p>
+      <div class="options" id="options"></div>
+
+      <div class="controls">
+        <span id="statusText">Choose the best answer to continue.</span>
+        <button id="nextButton" type="button">Next Question</button>
+      </div>
+    </section>
+
+    <section class="result-card" id="resultCard">
+      <h2>Quiz Complete</h2>
+      <p>You reached the end of the demo. This mirrors the type of scoring and completion feedback used in a real quiz flow.</p>
+      <div class="score" id="scoreText">0 / 3</div>
+    </section>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        prompt: "Which part of a quiz app is most important for keeping users focused during timed assessments?",
+        options: ["Heavy animations", "Clear navigation and timer logic", "Large images", "Long onboarding text"],
+        answer: 1
+      },
+      {
+        prompt: "What does a strong result screen do for the user experience?",
+        options: ["Hides performance details", "Adds confusion", "Provides clear feedback and next steps", "Forces a page refresh"],
+        answer: 2
+      },
+      {
+        prompt: "Why does responsive design matter in quiz platforms?",
+        options: ["It only matters on desktops", "It keeps the experience usable across screen sizes", "It replaces backend logic", "It disables scoring"],
+        answer: 1
+      }
+    ];
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const nextButton = document.getElementById("nextButton");
+    const resultCard = document.getElementById("resultCard");
+    const scoreText = document.getElementById("scoreText");
+    const timerEl = document.getElementById("timer");
+    const statusText = document.getElementById("statusText");
+    const progressBar = document.getElementById("progressBar");
+    const stepLabel = document.getElementById("stepLabel");
+
+    let currentIndex = 0;
+    let score = 0;
+    let selectedAnswer = null;
+    let timeLeft = 45;
+
+    function renderQuestion() {
+      const current = questions[currentIndex];
+      stepLabel.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
+      questionEl.textContent = current.prompt;
+      optionsEl.innerHTML = "";
+      selectedAnswer = null;
+      statusText.textContent = "Choose the best answer to continue.";
+      progressBar.style.width = `${((currentIndex + 1) / questions.length) * 100}%`;
+
+      current.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.textContent = option;
+        button.addEventListener("click", () => {
+          selectedAnswer = index;
+          document.querySelectorAll(".option").forEach((item) => {
+            item.style.background = "rgba(255,255,255,0.04)";
+            item.style.borderColor = "rgba(148, 163, 184, 0.14)";
+          });
+          button.style.background = "rgba(125, 211, 252, 0.14)";
+          button.style.borderColor = "rgba(125, 211, 252, 0.35)";
+          statusText.textContent = "Selection captured. Continue when ready.";
+        });
+        optionsEl.appendChild(button);
+      });
+    }
+
+    function showResult() {
+      document.querySelector(".quiz-card").style.display = "none";
+      resultCard.style.display = "block";
+      scoreText.textContent = `${score} / ${questions.length}`;
+      timerEl.textContent = "Completed";
+    }
+
+    nextButton.addEventListener("click", () => {
+      if (selectedAnswer === null) {
+        statusText.textContent = "Please choose an answer before moving on.";
+        return;
+      }
+
+      if (selectedAnswer === questions[currentIndex].answer) {
+        score += 1;
+      }
+
+      currentIndex += 1;
+
+      if (currentIndex >= questions.length) {
+        showResult();
+      } else {
+        renderQuestion();
+      }
+    });
+
+    setInterval(() => {
+      if (currentIndex >= questions.length || timeLeft <= 0) {
+        return;
+      }
+      timeLeft -= 1;
+      timerEl.textContent = `Time left: ${timeLeft}s`;
+    }, 1000);
+
+    renderQuestion();
+  </script>
+</body>
+</html>

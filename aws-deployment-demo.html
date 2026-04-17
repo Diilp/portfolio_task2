@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Deployment Project Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: #e2e8f0;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 25%),
+        linear-gradient(135deg, #020617, #0f172a);
+      padding: 28px;
+    }
+    .shell { max-width: 1080px; margin: 0 auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .topbar a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .badge {
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.14);
+      color: #7dd3fc;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+    .panel {
+      background: rgba(10, 18, 34, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(2, 8, 23, 0.4);
+      backdrop-filter: blur(16px);
+      padding: 28px;
+    }
+    h1, h2 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.05em;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+    }
+    p { color: #cbd5e1; }
+    .hero p { margin-top: 14px; max-width: 56ch; }
+    .diagram {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(20, 184, 166, 0.18));
+    }
+    .flow {
+      display: grid;
+      gap: 14px;
+    }
+    .node {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+    .arrow {
+      width: 2px;
+      height: 24px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #7dd3fc, transparent);
+    }
+    .status {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .status-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+    .status-card strong {
+      display: block;
+      color: #f8fafc;
+    }
+    .status-card span {
+      display: block;
+      margin-top: 8px;
+      color: #cbd5e1;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .controls button {
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #0f62fe, #14b8a6);
+    }
+    .log {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      min-height: 160px;
+    }
+    .log p + p { margin-top: 10px; }
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      body { padding: 16px; }
+      .panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <a href="porfolio.html">Back to Portfolio</a>
+      <span class="badge">AWS Deployment Demo</span>
+    </div>
+
+    <div class="layout">
+      <section class="panel hero">
+        <span class="badge">Cloud Project</span>
+        <h1 style="margin-top: 16px;">Deployment thinking beyond local development.</h1>
+        <p>This demo represents the AWS deployment project: application hosting on EC2 and Elastic Beanstalk with practical exposure to IAM, monitoring, and scaling concepts.</p>
+
+        <div class="diagram">
+          <div class="flow">
+            <div class="node"><strong>Application Build</strong><p style="margin-top: 8px;">Prepare app for deployment with a production workflow mindset.</p></div>
+            <div class="arrow"></div>
+            <div class="node"><strong>EC2 / Elastic Beanstalk</strong><p style="margin-top: 8px;">Deploy and manage the application in AWS environments.</p></div>
+            <div class="arrow"></div>
+            <div class="node"><strong>IAM and Monitoring</strong><p style="margin-top: 8px;">Learn access control, visibility, and operational awareness.</p></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button type="button" id="runFlow">Run Deployment Flow</button>
+          <button type="button" id="resetFlow">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Deployment Status</h2>
+        <div class="status">
+          <div class="status-card">
+            <strong>Environment Setup</strong>
+            <span id="envStatus">Waiting for deployment start</span>
+          </div>
+          <div class="status-card">
+            <strong>Access and Permissions</strong>
+            <span id="iamStatus">IAM review pending</span>
+          </div>
+          <div class="status-card">
+            <strong>Monitoring</strong>
+            <span id="monitorStatus">Metrics not initialized</span>
+          </div>
+        </div>
+
+        <div class="log" id="log">
+          <p>Deployment flow ready. Start the simulation to walk through the cloud workflow.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const envStatus = document.getElementById("envStatus");
+    const iamStatus = document.getElementById("iamStatus");
+    const monitorStatus = document.getElementById("monitorStatus");
+    const log = document.getElementById("log");
+    const runFlow = document.getElementById("runFlow");
+    const resetFlow = document.getElementById("resetFlow");
+
+    function addLog(message) {
+      const line = document.createElement("p");
+      line.textContent = message;
+      log.appendChild(line);
+    }
+
+    runFlow.addEventListener("click", () => {
+      log.innerHTML = "";
+      envStatus.textContent = "Application deployed to AWS environment";
+      iamStatus.textContent = "IAM access checked for deployment workflow";
+      monitorStatus.textContent = "Monitoring and health review in progress";
+
+      addLog("Deployment package prepared.");
+      addLog("Application launched on EC2 / Elastic Beanstalk.");
+      addLog("IAM reviewed for secure environment access.");
+
+      setTimeout(() => {
+        monitorStatus.textContent = "Environment monitored successfully";
+        addLog("Monitoring confirms deployment visibility and operational awareness.");
+      }, 900);
+    });
+
+    resetFlow.addEventListener("click", () => {
+      envStatus.textContent = "Waiting for deployment start";
+      iamStatus.textContent = "IAM review pending";
+      monitorStatus.textContent = "Metrics not initialized";
+      log.innerHTML = "<p>Deployment flow ready. Start the simulation to walk through the cloud workflow.</p>";
+    });
+  </script>
+</body>
+</html>
